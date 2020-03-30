@@ -23,9 +23,13 @@ public class Main32k implements Listener {
 		if(event.getDamager() instanceof Player) {
 			Player hitter = (Player) event.getDamager();
 			Inventory inv = hitter.getInventory();
-			int a = -1;
+			int a = 0;
+			if(inv.getSize() == 5) {
+				a = 5;
+			}
+			
 			while(a != inv.getSize()) {
-				a += 1;
+				
 				if(!(inv.getItem(a).equals(null))) {
 					
 					int max = inv.getItem(a).getMaxStackSize();
@@ -42,6 +46,7 @@ public class Main32k implements Listener {
 					}
 					inv.setItem(a, item);
 				}
+				a += 1;
 				
 			
 			}
@@ -52,11 +57,11 @@ public class Main32k implements Listener {
 	public void chestCheck(InventoryOpenEvent event) {
 		System.out.println("OpenInventoryEvent");
 		Inventory inv = event.getInventory();
-		int a = -1;
+		int a = 0;
 		System.out.println("Slot Count:" + inv.getSize());
 		while(!(a == inv.getSize())) {
 			System.out.println("Start Checking");
-			a += 1;
+			
 			System.out.println("Checking Item: " + a);
 			if(!(inv.getItem(a).equals(null))) {
 				
@@ -70,13 +75,16 @@ public class Main32k implements Listener {
 					
 				}
 				for(Enchantment enc : item.getEnchantments().keySet()) {
-					if (item.getEnchantmentLevel(enc)>enc.getMaxLevel()) {
-						item.removeEnchantment(enc);
-						item.addEnchantment(enc, enc.getMaxLevel());
+					if(inv.getSize() != 5) {
+						if (item.getEnchantmentLevel(enc)>enc.getMaxLevel()) {
+							item.removeEnchantment(enc);
+							item.addEnchantment(enc, enc.getMaxLevel());
+						}
 					}
 				}
 				inv.setItem(a, item);
 				System.out.println("Item Saved!");
+				a += 1;
 			}
 			
 		

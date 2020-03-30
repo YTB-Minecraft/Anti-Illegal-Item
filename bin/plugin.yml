@@ -2,3 +2,8 @@ name: Anti-IllegalItem
 author: YTB
 version: 0.2
 main: org.ytb.anarchy.anti_illegal.Main
+commands:
+ kit:
+  usage: /kit
+  permission: minecraft.command.give
+  description: Get 32k (Stacked)!

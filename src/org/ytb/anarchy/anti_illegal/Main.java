@@ -7,5 +7,6 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		System.out.println("\n\nYTB Anarchy 防非法物品已經成功載入\n\n本插件由YTB團隊製作!請勿直接修改/更新檔案!");
 		getServer().getPluginManager().registerEvents(new Main32k(this), this);
+		getServer().getPluginCommand("kit").setExecutor(new givekit());
 	}
 }
