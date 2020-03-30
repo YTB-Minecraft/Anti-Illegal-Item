@@ -19,11 +19,12 @@ public class Main32k implements Listener {
 	}
 	@EventHandler
 	public void HitCheck(EntityDamageByEntityEvent event) {
+		System.out.println("Hit Event");
 		if(event.getDamager() instanceof Player) {
 			Player hitter = (Player) event.getDamager();
 			Inventory inv = hitter.getInventory();
-			int a = 0;
-			while(a == inv.getSize()) {
+			int a = -1;
+			while(a != inv.getSize()) {
 				a += 1;
 				if(!(inv.getItem(a).equals(null))) {
 					
@@ -49,15 +50,22 @@ public class Main32k implements Listener {
 	}
 	@EventHandler
 	public void chestCheck(InventoryOpenEvent event) {
+		System.out.println("OpenInventoryEvent");
 		Inventory inv = event.getInventory();
-		int a = 0;
-		while(a == inv.getSize()) {
+		int a = -1;
+		System.out.println("Slot Count:" + inv.getSize());
+		while(!(a == inv.getSize())) {
+			System.out.println("Start Checking");
 			a += 1;
+			System.out.println("Checking Item: " + a);
 			if(!(inv.getItem(a).equals(null))) {
 				
 				int max = inv.getItem(a).getMaxStackSize();
 				ItemStack item = inv.getItem(a);
+				System.out.println("Item Max Stack:" + max + ",Current Amount:" + item.getAmount());
+				
 				if(item.getAmount()>max) {
+					System.out.println("Set Amount To:" + max);
 					item.setAmount(max);
 					
 				}
@@ -68,6 +76,7 @@ public class Main32k implements Listener {
 					}
 				}
 				inv.setItem(a, item);
+				System.out.println("Item Saved!");
 			}
 			
 		
