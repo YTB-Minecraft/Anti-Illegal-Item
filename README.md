@@ -23,7 +23,7 @@
 *這個機制是模仿2B2T PE的最後一個有32K的版本!只不過是在打人的時候檢查!
 
 ## 加入我們!
-`IP: play.ytbmc.tk`
+`PVP伺服器IP: play.ytbmc.tk    無政府伺服器IP: ytbanarchy.apexmc.co`
 [官方網站](https://ytbminecraft.tk/ "官方網站")
 在複製此插件之前請先提及我們YBT團隊!
 Before You Copy This Plugin, Please Mention us.
